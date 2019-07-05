@@ -23,12 +23,11 @@ spec:
                 secretKeyRef:
                   name: pgpassword
                   key: PGPASSWORD
-          #volumeMounts:
-          #  - name: postgres-storage
-          #    mountPath: "/var/lib/postgresql/data"
-          #    subPath: postgres
-      #volumes:
-      #  - name: postgres-storage
-      #    persistentVolumeClaim:
-      #      claimName: database-persistent-volume-claim
-
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: "/var/lib/postgresql/data"
+              subPath: postgres
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: database-persistent-volume-claim
