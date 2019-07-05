@@ -14,8 +14,8 @@ before_install:
   - gcloud config set project multi-k8s-demo-245609
   - gcloud config set compute/zone europe-west2-a
   - gcloud container clusters get-credentials multi-cluster-1
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --paswword-stdin
-  - docker built -t achilesp/react-test -f ./client/Dockerfile.dev ./client
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t achilesp/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run achillesp/react-test npm test -- --coverage
