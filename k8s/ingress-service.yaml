@@ -18,6 +18,19 @@ spec:
       - test3.achillespanagiotou.com
       - test4.achillespanagiotou.com
       - test5.achillespanagiotou.com
+      - test6.achillespanagiotou.com
+      - test7.achillespanagiotou.com
+      - test8.achillespanagiotou.com
+      - test9.achillespanagiotou.com
+      - test10.achillespanagiotou.com
+      - test11.achillespanagiotou.com
+      - test12.achillespanagiotou.com
+      - test13.achillespanagiotou.com
+      - test14.achillespanagiotou.com
+      - test15.achillespanagiotou.com
+      - test16.achillespanagiotou.com
+      - test17.achillespanagiotou.com
+      - test18.achillespanagiotou.com
       secretName: ingress-service-cert
   rules:
     - host: achillespanagiotou.com
@@ -44,4 +57,30 @@ spec:
     - host: test4.achillespanagiotou.com
       http: *paths
     - host: test5.achillespanagiotou.com
+      http: *paths
+    - host: test6.achillespanagiotou.com
+      http: *paths
+    - host: test7.achillespanagiotou.com
+      http: *paths
+    - host: test8.achillespanagiotou.com
+      http: *paths
+    - host: test9.achillespanagiotou.com
+      http: *paths
+    - host: test10.achillespanagiotou.com
+      http: *paths
+    - host: test11.achillespanagiotou.com
+      http: *paths
+    - host: test12.achillespanagiotou.com
+      http: *paths
+    - host: test13.achillespanagiotou.com
+      http: *paths
+    - host: test14.achillespanagiotou.com
+      http: *paths
+    - host: test15.achillespanagiotou.com
+      http: *paths
+    - host: test16.achillespanagiotou.com
+      http: *paths
+    - host: test17.achillespanagiotou.com
+      http: *paths
+    - host: test18.achillespanagiotou.com
       http: *paths
