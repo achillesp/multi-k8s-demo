@@ -12,6 +12,7 @@ spec:
     - hosts:
       - achillespanagiotou.com
       - www.achillespanagiotou.com
+      - test.organicway.gr
       - test1.achillespanagiotou.com
       - test2.achillespanagiotou.com
       - test3.achillespanagiotou.com
@@ -31,6 +32,8 @@ spec:
               serviceName: server-cluster-ip-service
               servicePort: 5000
     - host: www.achillespanagiotou.com
+      http: *paths
+    - host: test.organicway.gr
       http: *paths
     - host: test1.achillespanagiotou.com
       http: *paths
