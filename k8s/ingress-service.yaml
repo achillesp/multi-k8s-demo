@@ -10,14 +10,14 @@ metadata:
 spec:
   tls:
     - hosts:
-        - achillespanagiotou.com
-        - www.achillespanagiotou.com
-        - test1.achillespanagiotou.com
-        - test2.achillespanagiotou.com
-        - test3.achillespanagiotou.com
-        - test4.achillespanagiotou.com
-        - test5.achillespanagiotou.com
-      secretName: achillespanagiotou-com
+      - achillespanagiotou.com
+      - www.achillespanagiotou.com
+      - test1.achillespanagiotou.com
+      - test2.achillespanagiotou.com
+      - test3.achillespanagiotou.com
+      - test4.achillespanagiotou.com
+      - test5.achillespanagiotou.com
+      secretName: ingress-service-cert
   rules:
     - host: achillespanagiotou.com
       http: &paths

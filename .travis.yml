@@ -15,10 +15,10 @@ before_install:
   - gcloud config set compute/zone europe-west2-a # gc set active zone
   - gcloud container clusters get-credentials multi-cluster-1 # gc select cluster to work on
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # login to docker hub (we need to setup docker username and password env variables on travis)
-  - docker build -t achillesp/react-test -f ./client/Dockerfile.dev ./client # build the image we want for tests
+#  - docker build -t achillesp/react-test -f ./client/Dockerfile.dev ./client # build the image we want for tests
 
-script:
-  - docker run achillesp/react-test npm test -- --coverage # run tests and print a coverage report
+# script:
+#  - docker run achillesp/react-test npm test -- --coverage # run tests and print a coverage report
 
 deploy:
   provider: script
