@@ -3,22 +3,22 @@ services:
   - docker
 env:
   global:
-    - SHA=$(git rev-parse HEAD)
+    - SHA=$(git rev-parse HEAD) # we need this to tag the docker images
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
-  - openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in service-account.json.enc -out service-account.json -d
-  - curl https://sdk.cloud.google.com | bash > /dev/null;
-  - source $HOME/google-cloud-sdk/path.bash.inc
-  - gcloud components update kubectl
-  - gcloud auth activate-service-account --key-file service-account.json
-  - gcloud config set project multi-k8s-demo-245609
-  - gcloud config set compute/zone europe-west2-a
-  - gcloud container clusters get-credentials multi-cluster-1
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t achillesp/react-test -f ./client/Dockerfile.dev ./client
+  - openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in service-account.json.enc -out service-account.json -d # decrypt service.account.json.enc
+  - curl https://sdk.cloud.google.com | bash > /dev/null; # download and install google cloud sdk
+  - source $HOME/google-cloud-sdk/path.bash.inc # load gc bash config to shell
+  - gcloud components update kubectl # install kubectl through gc sdk
+  - gcloud auth activate-service-account --key-file service-account.json # authenticate on gc through a service account
+  - gcloud config set project multi-k8s-demo-245609 # gc set active project
+  - gcloud config set compute/zone europe-west2-a # gc set active zone
+  - gcloud container clusters get-credentials multi-cluster-1 # gc select cluster to work on
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # login to docker hub (we need to setup docker username and password env variables on travis)
+  - docker build -t achillesp/react-test -f ./client/Dockerfile.dev ./client # build the image we want for tests
 
 script:
-  - docker run achillesp/react-test npm test -- --coverage
+  - docker run achillesp/react-test npm test -- --coverage # run tests and print a coverage report
 
 deploy:
   provider: script
