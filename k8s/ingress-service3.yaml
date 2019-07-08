@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-service1
+  name: ingress-service3
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$1
@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - test1.achillespanagiotou.com
-      secretName: ingress-service2-cert
+      - test3.achillespanagiotou.com
+      secretName: ingress-service3-cert
   rules:
-    - host: test1.achillespanagiotou.com
+    - host: test3.achillespanagiotou.com
       http:
         paths:
           - path: /?(.*)

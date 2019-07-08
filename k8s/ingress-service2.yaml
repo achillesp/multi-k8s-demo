@@ -10,8 +10,8 @@ metadata:
 spec:
   tls:
     - hosts:
-        - test2.achillespanagiotou.com
-      secretName: test2-achillespanagiotou-com-tls
+      - test2.achillespanagiotou.com
+      secretName: ingress-service2-cert
   rules:
     - host: test2.achillespanagiotou.com
       http:
