@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
       - test1.achillespanagiotou.com
-      secretName: ingress-service2-cert
+      secretName: ingress-service1-cert
   rules:
     - host: test1.achillespanagiotou.com
       http:
