@@ -12,10 +12,15 @@ spec:
     - hosts:
         - achillespanagiotou.com
         - www.achillespanagiotou.com
+        - test1.achillespanagiotou.com
+        - test2.achillespanagiotou.com
+        - test3.achillespanagiotou.com
+        - test4.achillespanagiotou.com
+        - test5.achillespanagiotou.com
       secretName: achillespanagiotou-com
   rules:
     - host: achillespanagiotou.com
-      http:
+      http: &paths
         paths:
           - path: /?(.*)
             backend:
@@ -26,13 +31,14 @@ spec:
               serviceName: server-cluster-ip-service
               servicePort: 5000
     - host: www.achillespanagiotou.com
-      http:
-        paths:
-          - path: /?(.*)
-            backend:
-              serviceName: client-cluster-ip-service
-              servicePort: 3000
-          - path: /api/?(.*)
-            backend:
-              serviceName: server-cluster-ip-service
-              servicePort: 5000
+      http: *paths
+    - host: test1.achillespanagiotou.com
+      http: *paths
+    - host: test2.achillespanagiotou.com
+      http: *paths
+    - host: test3.achillespanagiotou.com
+      http: *paths
+    - host: test4.achillespanagiotou.com
+      http: *paths
+    - host: test5.achillespanagiotou.com
+      http: *paths
